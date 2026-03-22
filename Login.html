@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Angkasa - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="https://files.catbox.moe/98akik.jpg" type="image/png">
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      -webkit-tap-highlight-color: transparent;
+    }
+    html, body { 
+      height: 100%; 
+      overflow: hidden; 
+      background: black;
+    }
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0px 30px;
+      justify-content: flex-start;
+    }
+    .profile-video-wrapper {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      margin: 10px 0 25px;
+      border-radius: 10px;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 30px rgba(255,255,255,0.9);
+      overflow: hidden;
+    }
+    #profile-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 75%;
+    }
+    .video-main-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 42px;
+      color: #ffffff;
+      text-shadow: 0 0 25px rgba(255,255,255,1);
+      line-height: 1;
+      letter-spacing: 2px;
+      margin: 0;
+      text-align: center;
+    }
+    .form-group {
+      width: 100%;
+      padding: 0 20px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .form-label {
+      display: flex;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      margin-bottom: 5px;
+    }
+    .form-label i {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid #ffffff;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.3);
+      color: #ffffff;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+    }
+    .form-control::placeholder {
+      color: #ffffff;
+      opacity: 0.7;
+    }
+    .btn-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .btn-login {
+      width: 100%;
+      max-width: 450px;
+      padding: 16px;
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      margin-bottom: 10px;
+    }
+    .info-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    #loading-page {
+      display: none;
+      position: fixed;
+      top: 0;
+      raw.githubusercontent.com/rafzzesde-creator/KONTOLANAK/refs/heads/main/KONTOL.json
+      height: 100%;
+      background: black;
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 50px;
+    }
+    #loading-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+    }
+    .loading-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 38px;
+      color: #ffffff;
+      text-shadow: 0 0 30px rgba(255,255,255,1);
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      width: 90%;
+    }
+  </style>
+</head>
+<body>
+  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="RAPZ.mp4" type="video/mp4">
+    <source src="RAPZ.webm" type="video/webm">
+  </video>
+
+  <div class="main-content" id="login-page">
+    <div class="profile-video-wrapper">
+      <video id="profile-video" playsinline preload="auto">
+        <source src="banner.mp4" type="video/mp4">
+      </video>
+      <div class="video-text-overlay">
+        <h1 class="video-main-title">TRAPZ-X APPS</h1>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label"><i class="fas fa-user"></i> Username</label>
+      <input type="text" id="login-user" class="form-control" placeholder="Masukkan Username" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label"><i class="fas fa-key"></i> Access Key</label>
+      <input type="text" id="login-key" class="form-control" placeholder="Masukkan Access Key" required>
+    </div>
+
+    <div class="btn-container">
+      <button class="btn-login" onclick="checkLogin()">
+        <i class="fas fa-lock"></i> ACCESS LOGIN
+      </button>
+    </div>
+
+    <p class="info-text">DEV RapzKyut</p>
+    <p class="info-text">INFORMASI : NI APLIKASI BELUM JADI ANJING</p>
+  </div>
+
+  <div id="loading-page">
+    <video id="loading-video" playsinline preload="auto">
+      <source src="loading.mp4" type="video/mp4">
+    </video>
+    <h1 class="loading-text">TRAPZ-X APPS</h1>
+  </div>
+
+  <script>
+    const loginPage = document.getElementById('login-page');
+    const loadingPage = document.getElementById('loading-page');
+    const profileVideo = document.getElementById('profile-video');
+    const bgVideo = document.getElementById('bg-video');
+    const loadingVideo = document.getElementById('loading-video');
+    const JSON_URL = "https://raw.githubusercontent.com/rafzzesde-creator/KONTOLANAK/refs/heads/main/KONTOL.json";
+
+    window.addEventListener('load', () => {
+      bgVideo.play();
+      profileVideo.volume = 0.2;
+      profileVideo.play().catch(() => {});
+      loadingPage.style.display = 'none';
+    });
+
+    async function checkLogin() {
+      const inputUser = document.getElementById('login-user').value;
+      const inputKey = document.getElementById('login-key').value;
+      
+      if (!inputUser || !inputKey) {
+        alert('Username dan Access Key Harus Diisi!');
+        return;
+      }
+
+      try {
+        const response = await fetch(JSON_URL);
+        const credentials = await response.json();
+        const validAccount = credentials.find(acc => acc.username === inputUser && acc.password === inputKey);
+
+        if (validAccount) {
+          profileVideo.pause();
+          bgVideo.muted = true;
+          loadingVideo.play();
+          loadingPage.style.display = 'flex';
+          loginPage.style.display = 'none';
+          
+          loadingVideo.onended = () => {
+            window.location.href = "dashboard.html";
+          };
+        } else {
+          alert('Username atau Access Key salah!');
+        }
+      } catch (error) {
+        console.error("Error cek login:", error);
+        alert('Gagal terhubung ke server!');
+      }
+    }
+  </script>
+</body>
+</html>
