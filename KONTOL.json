@@ -1,22 +1,14 @@
-{
-  [
-    {
-      "username": "RAPZ",
-      "password": "RAPZ",
-      "expire_date": "9999-99-9",
-      "device_limit": 1
-    },
-    {
-      "username": "vip_user",
-      "password": "vip_password",
-      "expire_date": "2030-01-01",
-      "device_limit": 3
-    },
-    {
-      "username": "testkey",
-      "password": "testpass",
-      "expire_date": "2025-10-25",
-      "device_limit": 1
-    }
-  ]
-}
+[
+  {
+    "username": "user123",
+    "password": "key123",
+    "expiry": "9999-12-31",
+    "device_id": "null"
+  },
+  {
+    "username": "rapzkyut",
+    "password": "gantengbanget",
+    "expiry": "2026-01-01",
+    "device_id": "null"
+  }
+]
